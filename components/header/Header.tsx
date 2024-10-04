@@ -1,485 +1,77 @@
-import React from 'react'
+// components/header/Header.tsx
+"use client"; // Ensure this is a Client Component
+
+import { useState } from 'react';
+import Link from 'next/link';
+import { MagnifyingGlassIcon, UserCircleIcon, ShoppingCartIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <header id="header" className="site-header">
-    <div className="top-info border-bottom d-none d-md-block ">
-      <div className="container-fluid">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <p className="fs-6 my-2 text-center">
-              Need any help? Call us <a href="tel:112233344455">112233344455</a>
-            </p>
+    <header className="bg-white shadow" style={{ paddingTop: '20px', paddingBottom: '20px' }}>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0" >
+            <Link className="navbar-brand" href="/">
+              <img src="images/main-logo.png" alt="Logo"  style={{ height: "100px", width: "140px" }} className="logo" />
+            </Link>
+           
           </div>
-          <div className="col-md-4 border-start border-end">
-            <p className="fs-6 my-2 text-center">
-              Summer sale discount off 60% off!{" "}
-              <a className="text-decoration-underline" href="index.html">
-                Shop Now
-              </a>
-            </p>
+
+          {/* Hamburger Icon for Mobile */}
+          <div className="md:hidden">
+            <button onClick={toggleMenu} aria-label="Toggle menu">
+              {isOpen ? (
+                <XMarkIcon className="h-6 w-6 text-gray-700" />
+              ) : (
+                <Bars3Icon className="h-6 w-6 text-gray-700" />
+              )}
+            </button>
           </div>
-          <div className="col-md-4">
-            <p className="fs-6 my-2 text-center">
-              2-3 business days delivery &amp; free returns
-            </p>
+
+          {/* Center Navigation Links */}
+          <div className="hidden md:flex md:space-x-10">
+            <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
+            <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
+            <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
           </div>
-        </div>
-      </div>
-    </div>
-    <nav id="header-nav" className="navbar navbar-expand-lg py-3">
-      <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <img src="images/main-logo.png"  style={{    height: "100px",
-                    width: "140px"}} className="logo" />
-        </a>
-        <button
-          className="navbar-toggler d-flex d-lg-none order-3 p-2"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#bdNavbar"
-          aria-controls="bdNavbar"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <svg className="navbar-icon">
-            <use xlinkHref="#navbar-icon" />
-          </svg>
-        </button>
-        <div
-          className="offcanvas offcanvas-end"
-          tabIndex={-1}
-          id="bdNavbar"
-          aria-labelledby="bdNavbarOffcanvasLabel"
-        >
-          <div className="offcanvas-header px-4 pb-0">
-            <a className="navbar-brand" href="index.html">
-              <img src="images/main-logo.png"  style={{    height: "100px",
-                    width: "140px"}} className="logo" />
-            </a>
-            <button
-              type="button"
-              className="btn-close btn-close-black"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-              data-bs-target="#bdNavbar"
-            />
-          </div>
-          <div className="offcanvas-body">
-            <ul
-              id="navbar"
-              className="navbar-nav text-uppercase justify-content-start justify-content-lg-center align-items-start align-items-lg-center flex-grow-1"
-            >
-              <li className="nav-item">
-                <a className="nav-link me-4 active" href="index.html">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link me-4" href="/about">
-                  About
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link me-4" href="index.html">
-                  Shop
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link me-4" href="index.html">
-                  Blogs
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link me-4 dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-expanded="false"
-                >
-                  Pages
-                </a>
-                <ul className="dropdown-menu animate slide border">
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Shop
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Single Product
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Cart
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Checkout
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Single Post
-                    </a>
-                  </li>
-                  <li>
-                    <a href="index.html" className="dropdown-item fw-light">
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link me-4" href="index.html">
-                  Contact
-                </a>
-              </li>
-            </ul>
-            <div className="user-items d-flex">
-              <ul className="d-flex justify-content-end list-unstyled mb-0">
-                <li className="search-item pe-3">
-                  <a href="#" className="search-button">
-                    <svg className="search">
-                      <use xlinkHref="#search" />
-                    </svg>
-                  </a>
-                </li>
-                <li className="pe-3">
-                  <a
-                    href="#"
-                    data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
-                  >
-                    <svg className="user">
-                      <use xlinkHref="#user" />
-                    </svg>
-                  </a>
-                  {/* Modal */}
-                  <div
-                    className="modal fade"
-                    id="exampleModal"
-                    tabIndex={-1}
-                    aria-labelledby="exampleModalLabel"
-                    aria-hidden="true"
-                  >
-                    <div className="modal-dialog">
-                      <div className="modal-content">
-                        <div className="modal-header border-bottom-0">
-                          <button
-                            type="button"
-                            className="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="Close"
-                          />
-                        </div>
-                        <div className="modal-body">
-                          <div className="tabs-listing">
-                            <nav>
-                              <div
-                                className="nav nav-tabs d-flex justify-content-center"
-                                id="nav-tab"
-                                role="tablist"
-                              >
-                                <button
-                                  className="nav-link text-capitalize active"
-                                  id="nav-sign-in-tab"
-                                  data-bs-toggle="tab"
-                                  data-bs-target="#nav-sign-in"
-                                  type="button"
-                                  role="tab"
-                                  aria-controls="nav-sign-in"
-                                  aria-selected="true"
-                                >
-                                  Sign In
-                                </button>
-                                <button
-                                  className="nav-link text-capitalize"
-                                  id="nav-register-tab"
-                                  data-bs-toggle="tab"
-                                  data-bs-target="#nav-register"
-                                  type="button"
-                                  role="tab"
-                                  aria-controls="nav-register"
-                                  aria-selected="false"
-                                >
-                                  Register
-                                </button>
-                              </div>
-                            </nav>
-                            <div className="tab-content" id="nav-tabContent">
-                              <div
-                                className="tab-pane fade active show"
-                                id="nav-sign-in"
-                                role="tabpanel"
-                                aria-labelledby="nav-sign-in-tab"
-                              >
-                                <div className="form-group py-3">
-                                  <label className="mb-2" htmlFor="sign-in">
-                                    Username or email address *
-                                  </label>
-                                  <input
-                                    type="text"
-                                    minLength={2}
-                                    name="username"
-                                    placeholder="Your Username"
-                                    className="form-control w-100 rounded-3 p-3"
-                                    required=""
-                                  />
-                                </div>
-                                <div className="form-group pb-3">
-                                  <label className="mb-2" htmlFor="sign-in">
-                                    Password *
-                                  </label>
-                                  <input
-                                    type="password"
-                                    minLength={2}
-                                    name="password"
-                                    placeholder="Your Password"
-                                    className="form-control w-100 rounded-3 p-3"
-                                    required=""
-                                  />
-                                </div>
-                                <label className="py-3">
-                                  <input
-                                    type="checkbox"
-                                    required=""
-                                    className="d-inline"
-                                  />
-                                  <span className="label-body">
-                                    Remember me
-                                  </span>
-                                  <span className="label-body">
-                                    <a href="#" className="fw-bold">
-                                      Forgot Password
-                                    </a>
-                                  </span>
-                                </label>
-                                <button
-                                  type="submit"
-                                  name="submit"
-                                  className="btn btn-dark w-100 my-3"
-                                >
-                                  Login
-                                </button>
-                              </div>
-                              <div
-                                className="tab-pane fade"
-                                id="nav-register"
-                                role="tabpanel"
-                                aria-labelledby="nav-register-tab"
-                              >
-                                <div className="form-group py-3">
-                                  <label className="mb-2" htmlFor="register">
-                                    Your email address *
-                                  </label>
-                                  <input
-                                    type="text"
-                                    minLength={2}
-                                    name="username"
-                                    placeholder="Your Email Address"
-                                    className="form-control w-100 rounded-3 p-3"
-                                    required=""
-                                  />
-                                </div>
-                                <div className="form-group pb-3">
-                                  <label className="mb-2" htmlFor="sign-in">
-                                    Password *
-                                  </label>
-                                  <input
-                                    type="password"
-                                    minLength={2}
-                                    name="password"
-                                    placeholder="Your Password"
-                                    className="form-control w-100 rounded-3 p-3"
-                                    required=""
-                                  />
-                                </div>
-                                <label className="py-3">
-                                  <input
-                                    type="checkbox"
-                                    required=""
-                                    className="d-inline"
-                                  />
-                                  <span className="label-body">
-                                    I agree to the{" "}
-                                    <a href="#" className="fw-bold">
-                                      Privacy Policy
-                                    </a>
-                                  </span>
-                                </label>
-                                <button
-                                  type="submit"
-                                  name="submit"
-                                  className="btn btn-dark w-100 my-3"
-                                >
-                                  Register
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li className="wishlist-dropdown dropdown pe-3">
-                  <a
-                    href="#"
-                    className="dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    role="button"
-                    aria-expanded="false"
-                  >
-                    <svg className="wishlist">
-                      <use xlinkHref="#heart" />
-                    </svg>
-                  </a>
-                  <div className="dropdown-menu animate slide dropdown-menu-start dropdown-menu-lg-end p-3">
-                    <h4 className="d-flex justify-content-between align-items-center mb-3">
-                      <span className="text-primary">Your wishlist</span>
-                      <span className="badge bg-primary rounded-pill">2</span>
-                    </h4>
-                    <ul className="list-group mb-3">
-                      <li className="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                        <div>
-                          <h5>
-                            <a href="index.html">The Emerald Crown</a>
-                          </h5>
-                          <small>Special discounted price.</small>
-                          <a
-                            href="#"
-                            className="d-block fw-medium text-capitalize mt-2"
-                          >
-                            Add to cart
-                          </a>
-                        </div>
-                        <span className="text-primary">$2000</span>
-                      </li>
-                      <li className="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                        <div>
-                          <h5>
-                            <a href="index.html">The Last Enchantment</a>
-                          </h5>
-                          <small>Perfect for enlightened people.</small>
-                          <a
-                            href="#"
-                            className="d-block fw-medium text-capitalize mt-2"
-                          >
-                            Add to cart
-                          </a>
-                        </div>
-                        <span className="text-primary">$400</span>
-                      </li>
-                      <li className="list-group-item bg-transparent d-flex justify-content-between">
-                        <span className="text-capitalize">
-                          <b>Total (USD)</b>
-                        </span>
-                        <strong>$1470</strong>
-                      </li>
-                    </ul>
-                    <div className="d-flex flex-wrap justify-content-center">
-                      <a
-                        href="#"
-                        className="w-100 btn btn-dark mb-1"
-                        type="submit"
-                      >
-                        Add all to cart
-                      </a>
-                      <a
-                        href="index.html"
-                        className="w-100 btn btn-primary"
-                        type="submit"
-                      >
-                        View cart
-                      </a>
-                    </div>
-                  </div>
-                </li>
-                <li className="cart-dropdown dropdown">
-                  <a
-                    href="index.html"
-                    className="dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    role="button"
-                    aria-expanded="false"
-                  >
-                    <svg className="cart">
-                      <use xlinkHref="#cart" />
-                    </svg>
-                    <span className="fs-6 fw-light">(02)</span>
-                  </a>
-                  <div className="dropdown-menu animate slide dropdown-menu-start dropdown-menu-lg-end p-3">
-                    <h4 className="d-flex justify-content-between align-items-center mb-3">
-                      <span className="text-primary">Your cart</span>
-                      <span className="badge bg-primary rounded-pill">2</span>
-                    </h4>
-                    <ul className="list-group mb-3">
-                      <li className="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                        <div>
-                          <h5>
-                            <a href="index.html">Secrets of the Alchemist</a>
-                          </h5>
-                          <small>High quality in good price.</small>
-                        </div>
-                        <span className="text-primary">$870</span>
-                      </li>
-                      <li className="list-group-item bg-transparent d-flex justify-content-between lh-sm">
-                        <div>
-                          <h5>
-                            <a href="index.html">Quest for the Lost City</a>
-                          </h5>
-                          <small>Professional Quest for the Lost City.</small>
-                        </div>
-                        <span className="text-primary">$600</span>
-                      </li>
-                      <li className="list-group-item bg-transparent d-flex justify-content-between">
-                        <span className="text-capitalize">
-                          <b>Total (USD)</b>
-                        </span>
-                        <strong>$1470</strong>
-                      </li>
-                    </ul>
-                    <div className="d-flex flex-wrap justify-content-center">
-                      <a
-                        href="index.html"
-                        className="w-100 btn btn-dark mb-1"
-                        type="submit"
-                      >
-                        View Cart
-                      </a>
-                      <a
-                        href="index.html"
-                        className="w-100 btn btn-primary"
-                        type="submit"
-                      >
-                        Go to checkout
-                      </a>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+
+          {/* Right Icons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <div className="relative">
+              <select className="border rounded-md p-2">
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
+                <option value="es">ES</option>
+              </select>
             </div>
+            <Link href="/search" className="p-2" aria-label="Search">
+              <MagnifyingGlassIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
+            <Link href="/login" className="p-2" aria-label="Login">
+              <UserCircleIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
+            <Link href="/cart" className="p-2" aria-label="Shopping Cart">
+              <ShoppingCartIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
 
-  )
-}
+        {/* Mobile Menu */}
+        <div style={{ marginTop: '30px' }} className={`md:hidden flex flex-col bg-white shadow-md w-full ${isOpen ? 'block' : 'hidden'}`}>
+          <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
+          <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
+          <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
+        </div>
+      </nav>
+    </header>
+  );
+};
 
-export default Header
+export default Header;
