@@ -68,6 +68,15 @@ const Header = () => {
           <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
           <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
           <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
+          <Link href="/search" className="p-2" aria-label="Search">
+              <MagnifyingGlassIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
+            <Link href="/login" className="p-2" aria-label="Login">
+              <UserCircleIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
+            <Link href="/cart" className="p-2" aria-label="Shopping Cart">
+              <ShoppingCartIcon className="h-6 w-6 text-gray-700 hover:text-gray-900 cursor-pointer" />
+            </Link>
         </div>
       </nav>
     </header>
