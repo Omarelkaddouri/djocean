@@ -1,25 +1,49 @@
-"use client"; // Ensure you have the 'use client' directive if using this in Next.js
-
-import Link from 'next/link'; // Correct import statement
-import React from 'react';
+"use client";
+import Link from 'next/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 mt-10 shadow-lg">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-6 md:mb-0">
-          <h4 className="text-3xl font-bold mb-2">djstage</h4>
-          <p className="text-sm text-gray-300">Your one-stop shop for musical instruments and gear.</p>
+    <footer 
+      className="relative text-white py-12"  // Increased vertical padding
+      style={{ 
+        backgroundImage: "url('/images/footer.png')",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '200px' // Set a minimum height for the footer
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        
+        {/* Left - Logo */}
+        <div className="flex items-center space-x-3">
+          <img src="/images/main-logo.png" alt="Logo" className="h-16 w-24" />
         </div>
-        <div className="flex flex-col md:flex-row md:space-x-8 md:space-y-0 space-y-4">
-          <Link href="/about" className="px-4 py-2 hover:text-blue-400 transition duration-300">About Us</Link>
-          <Link href="/services" className="px-4 py-2 hover:text-blue-400 transition duration-300">Services</Link>
-          <Link href="/contact" className="px-4 py-2 hover:text-blue-400 transition duration-300">Contact</Link>
-          <Link href="/privacy" className="px-4 py-2 hover:text-blue-400 transition duration-300">Privacy Policy</Link>
+        
+        {/* Center - Copyright and Email */}
+        <div className="text-center">
+          <p>© 2024 DJStage</p>
+          <p>djstage@gmail.com</p>
+          <p>+21200000000</p>
         </div>
-      </div>
-      <div className="text-center mt-6 border-t border-gray-700 pt-4">
-        <p className="text-sm">&copy; {new Date().getFullYear()} Music Store. All rights reserved.</p>
+        
+        {/* Right - Social Media Icons */}
+        <div className="flex space-x-4">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faFacebook} className="text-white h-6 w-6 hover:text-gray-400" />
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faTwitter} className="text-white h-6 w-6 hover:text-gray-400" />
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <FontAwesomeIcon icon={faInstagram} className="text-white h-6 w-6 hover:text-gray-400" />
+          </a>
+        </div>
       </div>
     </footer>
   );

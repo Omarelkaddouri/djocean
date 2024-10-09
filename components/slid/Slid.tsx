@@ -8,8 +8,27 @@ import Link from 'next/link';
 
 const Slid = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [slidesData, setSlidesData] = useState([]); // State for slides data
-  const [loading, setLoading] = useState(true); // State for loading
+
+  const slidesData = [
+    {
+      img: "/images/guitar_slid.jpg",
+      title: "Guitars",
+      description: "Explore a variety of guitars suited for every musician.",
+      link: "/slid1",
+    },
+    {
+      img: "/images/bases_slid.jpg",
+      title: "Basses",
+      description: "Find your perfect bass with rich tones and durability.",
+      link: "/slid2",
+    },
+    {
+      img: "/images/drums_slid.jpg",
+      title: "Drums",
+      description: "Rhythm made easy with our range of drum kits.",
+      link: "/slid3",
+    }
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -24,37 +43,6 @@ const Slid = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    const fetchSlidesData = async () => {
-      try {
-        
-        // Replace this URL with your fake API endpoint
-        const response = await fetch('https://jsonplaceholder.typicode.com/photos?_limit=3');
-        const data = await response.json();
-        
-        // Map the fetched data to match the slide structure, including category links
-        const formattedData = data.map(slide => ({
-          img: slide.url,
-          title: slide.title,
-          description: slide.title, // You can modify this if you have a separate description field
-          link: `/Type/${slide.title.toLowerCase().replace(/\s+/g, '-')}`, // Example link based on title
-        }));
-        
-        setSlidesData(formattedData);
-      } catch (error) {
-        console.error("Error fetching slides data:", error);
-      } finally {
-        setLoading(false); // Set loading to false after fetching data
-      }
-    };
-
-    fetchSlidesData();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>; // Loading state
-  }
 
   return (
     <Swiper
@@ -77,50 +65,54 @@ const Slid = () => {
             alignItems: isMobile ? 'flex-start' : 'center',
             justifyContent: isMobile ? 'flex-start' : 'center',
             textAlign: 'left',
-            flexDirection: isMobile ? 'column' : 'row', // Change to column if isMobile
+            flexDirection: isMobile ? 'column' : 'row',
+            minHeight: "600px", // Increased height for slides
+            backgroundColor: "#f0f0f0", // Background color for slides
+            padding: "20px", // Padding around content
+            borderRadius: "10px", // Optional rounded corners
           }}
         >
-          <Link href={slide.link} style={{ width: "100%", display: 'flex', flexDirection: isMobile ? 'column' : 'row' }}>
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                padding: "20px",
-                width: "100%",
-                maxWidth: "600px",
-                boxSizing: "border-box",
-              }}
-            >
-              <h3 style={{ fontSize: "1.8rem", fontWeight: "bold", marginBottom: "10px" }}>{slide.title}</h3>
-              <p style={{ fontSize: "1rem", color: "#555", marginBottom: "15px" }}>{slide.description}</p>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              padding: "20px",
+              width: "100%",
+              maxWidth: "600px",
+              boxSizing: "border-box",
+            }}
+          >
+            <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>{slide.title}</h3>
+            <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>{slide.description}</p>
+            <Link href={`/categories${slide.link}`}> {/* Updated link to navigate to /categories/slide.link */}
               <button
                 style={{
-                  padding: "10px 20px",
-                  fontSize: "1rem",
-                  backgroundColor: "#0070f3",
+                  padding: "16px 32px", // Increased padding for the button
+                  fontSize: "1.5rem", // Increased font size
+                  backgroundColor: "#cf000c",
                   color: "#fff",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
                 }}
               >
-                Learn More
+                Discover
               </button>
-            </div>
-            <div style={{ width: "100%", maxWidth: "600px" }}>
-              <img
-                src={slide.img}
-                alt={slide.title}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "10px",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-          </Link>
+            </Link>
+          </div>
+          <div style={{ width: "100%", maxWidth: "600px" }}>
+            <img
+              src={slide.img}
+              alt={slide.title}
+              style={{
+                width: "100%",
+                height: "auto",
+                borderRadius: "10px",
+                objectFit: "cover",
+              }}
+            />
+          </div>
         </SwiperSlide>
       ))}
     </Swiper>

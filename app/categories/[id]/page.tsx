@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation'; // Use next/navigation to access URL parameters
 import Header from '@/components/header/Header';
+import Link from 'next/link'; // Import Link for navigation
 
 interface Photo {
   id: number;
@@ -13,7 +14,7 @@ interface Photo {
 
 const TypePage: React.FC = () => {
   const params = useParams(); // Get all parameters from the URL
-  const typeId = params.typeId; // Extract the typeId parameter
+  const typeId = params.id; // Extract the typeId parameter
 
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,10 +49,10 @@ const TypePage: React.FC = () => {
         {error && <p className="text-red-500">{error}</p>}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
           {photos.map((photo) => (
-            <div key={photo.id} className="border rounded-lg p-4">
+            <Link key={photo.id} href={`/product/${photo.id}`} className="border rounded-lg p-4 block hover:shadow-lg transition-shadow duration-200">
               <img src={photo.thumbnailUrl} alt={photo.title} className="w-full h-auto rounded" />
               <h2 className="mt-2 text-lg">{photo.title}</h2>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
