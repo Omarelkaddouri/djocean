@@ -7,6 +7,7 @@ import Image from 'next/image'; // Import Image for optimized images
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 import { usePathname } from 'next/navigation'; // Import usePathname
+
 // Define a type for the product details
 interface Product {
   id: string;

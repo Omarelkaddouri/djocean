@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const Footer = () => {
+    const currentYear = new Date().getFullYear();
+
   return (
     <footer 
       className="relative text-white py-12" // Increased vertical padding
@@ -31,7 +33,7 @@ const Footer = () => {
         
         {/* Center - Copyright and Email */}
         <div className="text-center">
-          <p>© 2024 DJStage</p>
+        <p>&copy; {currentYear} DJStage</p>
           <p>djstage.ma@gmail.com</p>
           <p>+212657011638</p>
         </div>

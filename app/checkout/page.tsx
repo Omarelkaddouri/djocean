@@ -8,7 +8,11 @@ const Checkout = () => {
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
-  const [address, setAddress] = useState(''); // New state for address
+  const [address, setAddress] = useState(''); // State for address
+  const [phone, setPhone] = useState(''); // New state for phone number
+  const [email, setEmail] = useState(''); // New state for email address
+  const [successMessage, setSuccessMessage] = useState(''); // State for success message
+
   const [cartItems] = useState([
     {
       id: 1,
@@ -26,16 +30,10 @@ const Checkout = () => {
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
-  const handleWhatsAppClick = () => {
-    const message = `Hi! I'm interested in the following items:\n` +
-                    cartItems.map(item => `${item.name} - Quantity: ${item.quantity}`).join('\n') + 
-                    `\nTotal Price: $${totalPrice}\n` + 
-                    `Name: ${name}\nCountry: ${country}\nCity: ${city}\nAddress: ${address}`; // Include new fields
-    
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/+212623092102?text=${encodedMessage}`; // Replace with your WhatsApp number
-
-    window.open(whatsappUrl, '_blank');
+  const handleCheckoutSubmit = () => {
+    // Here you could also handle sending data to your server if needed
+    // For demonstration, we just set the success message
+    setSuccessMessage("Checkout successful! Thank you for your order."); 
   };
 
   return (
@@ -53,6 +51,30 @@ const Checkout = () => {
                 id="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                className="w-full border border-gray-300 p-2 rounded-md"
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700" htmlFor="phone">Phone Number</label>
+              <input
+                type="tel"
+                id="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full border border-gray-300 p-2 rounded-md"
+                required
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-gray-700" htmlFor="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full border border-gray-300 p-2 rounded-md"
                 required
               />
@@ -108,12 +130,19 @@ const Checkout = () => {
 
             <button
               type="button"
-              onClick={handleWhatsAppClick}
+              onClick={handleCheckoutSubmit} // Call the new function
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
             >
-              Complete Checkout via WhatsApp
+              Complete Checkout
             </button>
           </form>
+
+          {/* Display success message if available */}
+          {successMessage && (
+            <div className="mt-4 text-green-600 text-center">
+              {successMessage}
+            </div>
+          )}
 
           <div className="mt-4 text-center">
             <Link href="/cart" className="text-blue-500 hover:underline">Go back to cart</Link>
