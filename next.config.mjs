@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  
   async redirects() {
     return [
       {
@@ -15,6 +14,9 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['via.placeholder.com'], // Add this line to allow images from this domain
+  },
 };
 
-export default nextConfig;
+export default nextConfig;
