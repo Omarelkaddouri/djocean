@@ -423,3 +423,217 @@ info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/d
 [debug] [2024-10-10T08:59:22.062Z] Error: ENOENT: no such file or directory, open 'C:\Users\elkaddouri\Desktop\Nouveau dossier (2)\djstage\.next\export-marker.json'
 [error] 
 [error] Error: An unexpected error has occurred.
+[debug] [2024-10-10T09:29:56.757Z] ----------------------------------------------------------------------
+[debug] [2024-10-10T09:29:56.794Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2024-10-10T09:29:56.795Z] CLI Version:   13.22.0
+[debug] [2024-10-10T09:29:56.795Z] Platform:      win32
+[debug] [2024-10-10T09:29:56.795Z] Node Version:  v20.12.2
+[debug] [2024-10-10T09:29:56.796Z] Time:          Thu Oct 10 2024 10:29:56 GMT+0100 (UTC+01:00)
+[debug] [2024-10-10T09:29:56.796Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-10T09:29:56.996Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-10T09:29:56.997Z] > authorizing via signed-in user (elkaddouriomar853@gmail.com)
+[debug] [2024-10-10T09:29:56.997Z] [iam] checking project djstage for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-10T09:29:57.002Z] Checked if tokens are valid: false, expires at: 1728552757727
+[debug] [2024-10-10T09:29:57.003Z] Checked if tokens are valid: false, expires at: 1728552757727
+[debug] [2024-10-10T09:29:57.004Z] > refreshing access token with scopes: []
+[debug] [2024-10-10T09:29:57.008Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-10-10T09:29:57.008Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-10T09:29:57.476Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-10-10T09:29:57.476Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-10-10T09:29:57.500Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions [none]
+[debug] [2024-10-10T09:29:57.501Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions x-goog-quota-user=projects/djstage
+[debug] [2024-10-10T09:29:57.501Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:29:58.377Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions 200
+[debug] [2024-10-10T09:29:58.378Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:29:58.379Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:29:58.379Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:29:58.380Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/djstage [none]
+[debug] [2024-10-10T09:29:58.801Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/djstage 200
+[debug] [2024-10-10T09:29:58.802Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/djstage {"projectId":"djstage","projectNumber":"480997952933","displayName":"djstage","name":"projects/djstage","resources":{"hostingSite":"djstage"},"state":"ACTIVE","etag":"1_8f6df716-a0ff-46c4-8bd6-daee01f71331"}
+[debug] [2024-10-10T09:30:08.817Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:08.817Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:08.820Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites pageToken=&pageSize=10
+[debug] [2024-10-10T09:30:09.930Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites 200
+[debug] [2024-10-10T09:30:09.931Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites {"sites":[{"name":"projects/djstage/sites/djstage","defaultUrl":"https://djstage.web.app","appId":"1:480997952933:web:84f521edad16cdec502c4c","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-10T09:30:09.931Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:09.932Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:09.932Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config [none]
+[debug] [2024-10-10T09:30:10.714Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config 200
+[debug] [2024-10-10T09:30:10.714Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config {"projectId":"djstage","appId":"1:480997952933:web:84f521edad16cdec502c4c","storageBucket":"djstage.appspot.com","apiKey":"AIzaSyAgcjdXBEvb8ybsCM2gwXM4aL8Ha6ht40c","authDomain":"djstage.firebaseapp.com","messagingSenderId":"480997952933","measurementId":"G-NHKV5DT3W5"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-10-10T09:30:30.310Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:30.311Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:30:30.311Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage [none]
+[debug] [2024-10-10T09:30:31.298Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage 200
+[debug] [2024-10-10T09:30:31.298Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage {"name":"projects/djstage/sites/djstage","defaultUrl":"https://djstage.web.app","appId":"1:480997952933:web:84f521edad16cdec502c4c","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.14
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info] uncaughtException [Error: EPERM: operation not permitted, open 'C:\Users\elkaddouri\Desktop\Nouveau dossier (2)\djstage\.next\trace'] {
+  errno: -4048,
+  code: 'EPERM',
+  syscall: 'open',
+  path: 'C:\\Users\\elkaddouri\\Desktop\\Nouveau dossier (2)\\djstage\\.next\\trace'
+}
+
+[debug] [2024-10-10T09:30:51.510Z] Error: ENOENT: no such file or directory, open 'C:\Users\elkaddouri\Desktop\Nouveau dossier (2)\djstage\.next\server\middleware-manifest.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-10T09:31:09.958Z] ----------------------------------------------------------------------
+[debug] [2024-10-10T09:31:09.965Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-10-10T09:31:09.966Z] CLI Version:   13.22.0
+[debug] [2024-10-10T09:31:09.967Z] Platform:      win32
+[debug] [2024-10-10T09:31:09.967Z] Node Version:  v20.12.2
+[debug] [2024-10-10T09:31:09.967Z] Time:          Thu Oct 10 2024 10:31:09 GMT+0100 (UTC+01:00)
+[debug] [2024-10-10T09:31:09.968Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-10T09:31:10.167Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-10T09:31:10.168Z] > authorizing via signed-in user (elkaddouriomar853@gmail.com)
+[debug] [2024-10-10T09:31:10.168Z] [iam] checking project djstage for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-10T09:31:10.171Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:10.172Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:10.175Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions [none]
+[debug] [2024-10-10T09:31:10.175Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions x-goog-quota-user=projects/djstage
+[debug] [2024-10-10T09:31:10.176Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:31:10.636Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions 200
+[debug] [2024-10-10T09:31:10.637Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:31:10.638Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:10.638Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:10.639Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/djstage [none]
+[debug] [2024-10-10T09:31:10.987Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/djstage 200
+[debug] [2024-10-10T09:31:10.987Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/djstage {"projectId":"djstage","projectNumber":"480997952933","displayName":"djstage","name":"projects/djstage","resources":{"hostingSite":"djstage"},"state":"ACTIVE","etag":"1_8f6df716-a0ff-46c4-8bd6-daee01f71331"}
+[debug] [2024-10-10T09:31:20.402Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:20.402Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:20.405Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites pageToken=&pageSize=10
+[debug] [2024-10-10T09:31:21.419Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites 200
+[debug] [2024-10-10T09:31:21.419Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites {"sites":[{"name":"projects/djstage/sites/djstage","defaultUrl":"https://djstage.web.app","appId":"1:480997952933:web:84f521edad16cdec502c4c","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-10T09:31:21.420Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:21.420Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:21.421Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config [none]
+[debug] [2024-10-10T09:31:22.143Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config 200
+[debug] [2024-10-10T09:31:22.143Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config {"projectId":"djstage","appId":"1:480997952933:web:84f521edad16cdec502c4c","storageBucket":"djstage.appspot.com","apiKey":"AIzaSyAgcjdXBEvb8ybsCM2gwXM4aL8Ha6ht40c","authDomain":"djstage.firebaseapp.com","messagingSenderId":"480997952933","measurementId":"G-NHKV5DT3W5"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+   The integration is known to work with Next.js version 12 - 14.0. You may encounter errors.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-10-10T09:31:43.241Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:43.242Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:31:43.242Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage [none]
+[debug] [2024-10-10T09:31:44.207Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage 200
+[debug] [2024-10-10T09:31:44.208Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites/djstage {"name":"projects/djstage/sites/djstage","defaultUrl":"https://djstage.web.app","appId":"1:480997952933:web:84f521edad16cdec502c4c","type":"DEFAULT_SITE"}
+[info]   ▲ Next.js 14.2.14
+
+[info] 
+
+[info]    Creating an optimized production build ...
+
+[info]  ✓ Compiled successfully
+
+[info]    Linting and checking validity of types ...
+
+[info] 
+Failed to compile.
+
+[info] 
+./app/cart/page.tsx
+9:46  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+26:37  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+26:49  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+27:30  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+28:28  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+34:33  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:30  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:64  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+38:61  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+55:39  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./app/firebase.js
+21:7  Error: 'analytics' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./app/product/[idProduct]/page.tsx
+30:19  Error: 'setProduct' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./components/footer/Footer.tsx
+2:8  Error: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+25:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/header/Header.tsx
+6:3  Error: 'UserCircleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+47:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/slid/Slid.tsx
+105:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./components/Type/Type.tsx
+29:48  Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[debug] [2024-10-10T09:33:53.878Z] Error: ENOENT: no such file or directory, open 'C:\Users\elkaddouri\Desktop\Nouveau dossier (2)\djstage\.next\export-marker.json'
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-10-10T09:35:49.471Z] ----------------------------------------------------------------------
+[debug] [2024-10-10T09:35:49.502Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2024-10-10T09:35:49.503Z] CLI Version:   13.22.0
+[debug] [2024-10-10T09:35:49.503Z] Platform:      win32
+[debug] [2024-10-10T09:35:49.503Z] Node Version:  v20.12.2
+[debug] [2024-10-10T09:35:49.504Z] Time:          Thu Oct 10 2024 10:35:49 GMT+0100 (UTC+01:00)
+[debug] [2024-10-10T09:35:49.504Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-10-10T09:35:49.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-10-10T09:35:49.715Z] > authorizing via signed-in user (elkaddouriomar853@gmail.com)
+[debug] [2024-10-10T09:35:49.716Z] [iam] checking project djstage for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-10-10T09:35:49.720Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:35:49.720Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:35:49.723Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions [none]
+[debug] [2024-10-10T09:35:49.723Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions x-goog-quota-user=projects/djstage
+[debug] [2024-10-10T09:35:49.724Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:35:50.865Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions 200
+[debug] [2024-10-10T09:35:50.867Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/djstage:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-10-10T09:35:50.868Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:35:50.869Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:35:50.869Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/djstage [none]
+[debug] [2024-10-10T09:35:51.322Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/djstage 200
+[debug] [2024-10-10T09:35:51.322Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/djstage {"projectId":"djstage","projectNumber":"480997952933","displayName":"djstage","name":"projects/djstage","resources":{"hostingSite":"djstage"},"state":"ACTIVE","etag":"1_8f6df716-a0ff-46c4-8bd6-daee01f71331"}
+[debug] [2024-10-10T09:36:08.924Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:36:08.925Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:36:08.929Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites pageToken=&pageSize=10
+[debug] [2024-10-10T09:36:10.292Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites 200
+[debug] [2024-10-10T09:36:10.293Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/djstage/sites {"sites":[{"name":"projects/djstage/sites/djstage","defaultUrl":"https://djstage.web.app","appId":"1:480997952933:web:84f521edad16cdec502c4c","type":"DEFAULT_SITE"}]}
+[debug] [2024-10-10T09:36:10.293Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:36:10.293Z] Checked if tokens are valid: true, expires at: 1728556196477
+[debug] [2024-10-10T09:36:10.294Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config [none]
+[debug] [2024-10-10T09:36:11.199Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config 200
+[debug] [2024-10-10T09:36:11.199Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:480997952933:web:84f521edad16cdec502c4c/config {"projectId":"djstage","appId":"1:480997952933:web:84f521edad16cdec502c4c","storageBucket":"djstage.appspot.com","apiKey":"AIzaSyAgcjdXBEvb8ybsCM2gwXM4aL8Ha6ht40c","authDomain":"djstage.firebaseapp.com","messagingSenderId":"480997952933","measurementId":"G-NHKV5DT3W5"}
+[debug] [2024-10-10T09:36:21.507Z] SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>)
+    at findDependency (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\utils.js:188:23)
+    at getAstroVersion (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\astro\utils.js:39:45)
+    at discover (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\astro\index.js:17:49)
+    at discover (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:47:38)
+    at async prepareFrameworks (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\frameworks\index.js:192:25)
+    at async deploy (C:\Users\elkaddouri\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:58:13)
+[error] 
+[error] Error: An unexpected error has occurred.

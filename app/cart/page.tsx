@@ -1,41 +1,55 @@
 "use client";
+
 import { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import Image from 'next/image';
 
-const Cart = () => {
-  const [cartItems, setCartItems] = useState<any[]>([
+// Define the interface for cart items
+interface CartItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}
+
+const Cart: React.FC = () => {
+  // Initialize state with the defined interface
+  const [cartItems, setCartItems] = useState<CartItem[]>([
     {
       id: 1,
       name: 'Guitar',
       price: 200,
       quantity: 1,
-      image: '/images/guitar_slid.jpg'
+      image: '/images/guitar_slid.jpg',
     },
     {
       id: 2,
       name: 'Bass',
       price: 150,
       quantity: 2,
-      image: '/images/bases_slid.jpg'
-    }
+      image: '/images/bases_slid.jpg',
+    },
   ]);
 
-  const handleQuantityChange = (id: any, delta: any) => {
-    setCartItems((prevItems: any[]) =>
-      prevItems.map((item: any) =>
+  // Update handleQuantityChange to use the correct types
+  const handleQuantityChange = (id: number, delta: number) => {
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
         item.id === id ? { ...item, quantity: item.quantity + delta } : item
       )
     );
   };
 
-  const handleRemoveItem = (id: any) => {
-    setCartItems((prevItems: any[]) => prevItems.filter((item: any) => item.id !== id));
+  // Update handleRemoveItem to use the correct type
+  const handleRemoveItem = (id: number) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
-  const totalPrice = cartItems.reduce((total: number, item: any) => total + item.price * item.quantity, 0);
+  // Calculate the total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
     <>
@@ -52,7 +66,7 @@ const Cart = () => {
           ) : (
             <div>
               <ul className="space-y-4">
-                {cartItems.map((item: any) => (
+                {cartItems.map((item) => (
                   <li key={item.id} className="flex items-center justify-between bg-white p-4 rounded-md shadow-md">
                     <div className="flex items-center">
                       <Image src={item.image} alt={item.name} width={80} height={80} className="h-20 w-20 object-cover rounded-md mr-4" />
