@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Header from "@/components/header/Header";
 import React from "react";
 import Footer from "@/components/footer/Footer";
+import Image from 'next/image'; // Import Image for optimized images
 
 const About = () => {
   return (
@@ -20,6 +21,14 @@ const About = () => {
             <p className="text-lg text-gray-700 mb-4">
               Our love for music drives us to curate an extensive selection of products that inspire creativity and enhance your musical journey.
             </p>
+            {/* Image for Who We Are section */}
+            <Image
+              src="https://via.placeholder.com/800x400.png?text=Who+We+Are"
+              alt="Who We Are"
+              className="w-full h-auto rounded-md mb-4"
+              width={800} // Set the width of the image
+              height={400} // Set the height of the image
+            />
           </section>
 
           <section className="mb-10 p-6 bg-white rounded-lg shadow-md">
@@ -27,6 +36,14 @@ const About = () => {
             <p className="text-lg text-gray-700 mb-4">
               Our mission is to empower musicians by offering a wide range of quality materials at affordable prices. We believe that everyone deserves the opportunity to explore their musical talent and express themselves through music.
             </p>
+            {/* Image for Our Mission section */}
+            <Image
+              src="https://via.placeholder.com/800x400.png?text=Our+Mission"
+              alt="Our Mission"
+              className="w-full h-auto rounded-md mb-4"
+              width={800}
+              height={400}
+            />
           </section>
 
           <section className="mb-10 p-6 bg-white rounded-lg shadow-md">
@@ -37,6 +54,14 @@ const About = () => {
               <li>Community: We are committed to supporting local musicians and fostering a vibrant music community.</li>
               <li>Innovation: We stay updated with the latest trends in music materials to offer you the best options.</li>
             </ul>
+            {/* Image for Our Values section */}
+            <Image
+              src="https://via.placeholder.com/800x400.png?text=Our+Values"
+              alt="Our Values"
+              className="w-full h-auto rounded-md mb-4"
+              width={800}
+              height={400}
+            />
           </section>
 
           <section className="mb-10 p-6 bg-white rounded-lg shadow-md">
@@ -50,6 +75,14 @@ const About = () => {
               <li>Competitive prices and regular promotions to help you save on your music shopping.</li>
               <li>Resources and tips to support your musical journey.</li>
             </ul>
+            {/* Image for What You Can Expect section */}
+            <Image
+              src="https://via.placeholder.com/800x400.png?text=What+You+Can+Expect"
+              alt="What You Can Expect"
+              className="w-full h-auto rounded-md mb-4"
+              width={800}
+              height={400}
+            />
           </section>
 
           <div className="text-center">

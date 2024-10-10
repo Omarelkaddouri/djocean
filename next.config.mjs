@@ -14,6 +14,9 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['via.placeholder.com'], // Add allowed image domain
+  },
 };
 
-export default nextConfig;
+export default nextConfig;
