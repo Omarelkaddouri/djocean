@@ -9,7 +9,7 @@ const Checkout = () => {
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
   const [address, setAddress] = useState(''); // New state for address
-  const [cartItems, setCartItems] = useState([
+  const [cartItems] = useState([
     {
       id: 1,
       name: 'Guitar',

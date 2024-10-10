@@ -3,11 +3,20 @@
 import { useRouter } from 'next/navigation'; // Use next/navigation to access router
 import { useState, useEffect } from 'react';
 import Link from 'next/link'; // Import Link for navigation
+import Image from 'next/image'; // Import Image for optimized images
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 
+// Define a type for the product details
+interface Product {
+  id: string;
+  title: string;
+  url: string;
+  price: number;
+}
+
 // Static product details for demonstration
-const staticProduct = {
+const staticProduct: Product = {
   id: '1', // Example product ID
   title: 'Sample Product',
   url: 'https://via.placeholder.com/400', // Placeholder image URL
@@ -18,9 +27,7 @@ const ProductPage = () => {
   const router = useRouter();
   const [idProduct, setIdProduct] = useState<string | undefined>(undefined); // State for product ID
   const [quantity, setQuantity] = useState(1); // State for quantity
-  const [product, setProduct] = useState<any>(staticProduct); // State for product details
-  const [loading, setLoading] = useState(false); // Loading state
-  const [error, setError] = useState<string | null>(null); // Error state
+  const [product, setProduct] = useState<Product>(staticProduct); // State for product details
 
   useEffect(() => {
     // Check if router is ready and set the product ID based on the pathname
@@ -43,7 +50,13 @@ const ProductPage = () => {
       <div className="max-w-md mx-auto p-4">
         {/* Product Details */}
         <h1 className="text-2xl font-semibold mb-4">Product: {product.title}</h1>
-        <img src={product.url} alt={product.title} className="w-full h-auto rounded mb-4" />
+        <Image
+          src={product.url}
+          alt={product.title}
+          className="w-full h-auto rounded mb-4"
+          width={400} // Set the width of the image
+          height={400} // Set the height of the image
+        />
         <p className="text-gray-700 mb-4">{product.title}</p>
         <p className="text-lg font-semibold mb-4">Price: ${product.price.toFixed(2)}</p> {/* Example price */}
 

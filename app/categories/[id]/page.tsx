@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation'; // Use next/navigation to access URL parameters
 import Header from '@/components/header/Header';
 import Link from 'next/link'; // Import Link for navigation
+import Image from 'next/image'; // Import Next.js Image component
 
 interface Photo {
   id: number;
@@ -29,7 +30,7 @@ const TypePage: React.FC = () => {
         }
         const data: Photo[] = await response.json();
         setPhotos(data);
-      } catch (err) {
+      } catch {
         setError('Failed to load photos');
       } finally {
         setLoading(false);
@@ -50,7 +51,7 @@ const TypePage: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
           {photos.map((photo) => (
             <Link key={photo.id} href={`/product/${photo.id}`} className="border rounded-lg p-4 block hover:shadow-lg transition-shadow duration-200">
-              <img src={photo.thumbnailUrl} alt={photo.title} className="w-full h-auto rounded" />
+              <Image src={photo.thumbnailUrl} alt={photo.title} width={150} height={150} className="w-full h-auto rounded" />
               <h2 className="mt-2 text-lg">{photo.title}</h2>
             </Link>
           ))}
