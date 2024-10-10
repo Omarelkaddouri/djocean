@@ -53,7 +53,7 @@ const Slid = () => {
       slidesPerView={1}
       loop
       autoplay={{
-        delay: 3000,
+        delay: 5000,
         disableOnInteraction: false,
       }}
     >

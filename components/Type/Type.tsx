@@ -22,6 +22,7 @@ const Type: React.FC = () => {
         const response = await fetch("https://jsonplaceholder.typicode.com/photos?_limit=4");
 
         if (!response.ok) {
+          console.log("https://jsonplaceholder.typicode.com/photos?_limit=4");
           throw new Error("Network response was not ok");
         }
 

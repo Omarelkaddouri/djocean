@@ -3,34 +3,37 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
-import Modal from '@/components/Modal/Modal'; // Import the Modal component
 
 const Checkout = () => {
   const [name, setName] = useState('');
   const [country, setCountry] = useState('');
   const [city, setCity] = useState('');
-  const [address, setAddress] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
-  const [showModal, setShowModal] = useState(false); // State for modal visibility
+  const [address, setAddress] = useState(''); // State for address
+  const [phone, setPhone] = useState(''); // New state for phone number
+  const [email, setEmail] = useState(''); // New state for email address
+  const [successMessage, setSuccessMessage] = useState(''); // State for success message
 
   const [cartItems] = useState([
-    { id: 1, name: 'Guitar', price: 200, quantity: 1 },
-    { id: 2, name: 'Bass', price: 150, quantity: 2 }
+    {
+      id: 1,
+      name: 'Guitar',
+      price: 200,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      name: 'Bass',
+      price: 150,
+      quantity: 2,
+    }
   ]);
 
   const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   const handleCheckoutSubmit = () => {
     // Here you could also handle sending data to your server if needed
-    setSuccessMessage("Checkout successful! Thank you for your order.");
-    setShowModal(true); // Show the modal on successful checkout
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false); // Close the modal
-    setSuccessMessage(''); // Clear the success message if needed
+    // For demonstration, we just set the success message
+    setSuccessMessage("Checkout successful! Thank you for your order."); 
   };
 
   return (
@@ -127,24 +130,25 @@ const Checkout = () => {
 
             <button
               type="button"
-              onClick={handleCheckoutSubmit}
+              onClick={handleCheckoutSubmit} // Call the new function
               className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700"
             >
               Complete Checkout
             </button>
           </form>
 
+          {/* Display success message if available */}
+          {successMessage && (
+            <div className="mt-4 text-green-600 text-center">
+              {successMessage}
+            </div>
+          )}
+
           <div className="mt-4 text-center">
             <Link href="/cart" className="text-blue-500 hover:underline">Go back to cart</Link>
           </div>
         </div>
       </div>
-
-      {/* Render the modal if showModal is true */}
-      {showModal && (
-        <Modal message={successMessage} onClose={handleCloseModal} />
-      )}
-
       <Footer />
     </>
   );
