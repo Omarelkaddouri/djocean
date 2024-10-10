@@ -32,13 +32,13 @@ const Footer = () => {
         {/* Center - Copyright and Email */}
         <div className="text-center">
           <p>© 2024 DJStage</p>
-          <p>djstage@gmail.com</p>
-          <p>+21200000000</p>
+          <p>djstage.ma@gmail.com</p>
+          <p>+212657011638</p>
         </div>
         
         {/* Right - Social Media Icons */}
         <div className="flex space-x-4">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/marocdjstage" target="_blank" rel="noopener noreferrer">
             <FontAwesomeIcon icon={faFacebook} className="text-white h-6 w-6 hover:text-gray-400" />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
