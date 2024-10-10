@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { 
-  MagnifyingGlassIcon, 
-  UserCircleIcon, 
-  ShoppingCartIcon, 
-  Bars3Icon, 
-  XMarkIcon 
+import {
+  MagnifyingGlassIcon,
+  UserCircleIcon,
+  ShoppingCartIcon,
+  Bars3Icon,
+  XMarkIcon
 } from '@heroicons/react/24/outline';
 
 const Header = () => {
@@ -15,12 +15,12 @@ const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const categories = [
-    "guitars", "basses", "keys", "wind-instruments", 
-    "drums-percussion", "pa-lighting", "recording", 
+    "guitars", "basses", "keys", "wind-instruments",
+    "drums-percussion", "pa-lighting", "recording",
     "dj-equipment", "instruments-for-children", "accessories-cables"
   ];
 
-  const filteredCategories = categories.filter(category => 
+  const filteredCategories = categories.filter(category =>
     category.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -44,19 +44,20 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <img 
-                src="/images/main-logo.png" 
-                alt="Logo" 
-                className="h-24 w-36" 
+              <img
+                src="/images/main-logo.png"
+                alt="Logo"
+                className="h-[12rem] w-auto"
               />
+
             </Link>
           </div>
 
           {/* Hamburger Icon for Mobile */}
           {isMobile && (
-            <button 
-              onClick={toggleMenu} 
-              aria-label="Toggle menu" 
+            <button
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
               className="md:hidden"
             >
               {isOpen ? (
@@ -82,9 +83,9 @@ const Header = () => {
               <option value="es">ES</option>
             </select>
             <div className="relative">
-              <input 
-                type="text" 
-                placeholder="Search categories..." 
+              <input
+                type="text"
+                placeholder="Search categories..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="border rounded-md p-2 pl-10 w-64"
@@ -94,9 +95,9 @@ const Header = () => {
                 <div className="absolute bg-white border rounded-md shadow-md mt-1 w-full z-50">
                   {filteredCategories.length > 0 ? (
                     filteredCategories.map(category => (
-                      <Link 
-                        key={category} 
-                        href={`/categories/${category}`} 
+                      <Link
+                        key={category}
+                        href={`/categories/${category}`}
                         className="block px-4 py-2 text-gray-900 hover:bg-gray-200"
                         onClick={() => setSearchQuery('')}
                       >
@@ -129,7 +130,7 @@ const Header = () => {
             <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
             <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
             <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
-            
+
             {/* Language Selector */}
             <div className="mt-4">
               <h3 className="text-lg font-semibold mb-2">Language</h3>
@@ -143,9 +144,9 @@ const Header = () => {
             {/* Search Bar */}
             <div className="flex items-center space-x-4 mt-4">
               <div className="relative w-full">
-                <input 
-                  type="text" 
-                  placeholder="Search categories..." 
+                <input
+                  type="text"
+                  placeholder="Search categories..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="border rounded-md p-2 pl-10 w-full"
@@ -155,9 +156,9 @@ const Header = () => {
                   <div className="absolute bg-white border rounded-md shadow-md mt-1 w-full z-50">
                     {filteredCategories.length > 0 ? (
                       filteredCategories.map(category => (
-                        <Link 
-                          key={category} 
-                          href={`/categories/${category}`} 
+                        <Link
+                          key={category}
+                          href={`/categories/${category}`}
                           className="block px-4 py-2 text-gray-900 hover:bg-gray-200"
                           onClick={() => setSearchQuery('')}
                         >
@@ -180,8 +181,8 @@ const Header = () => {
               <ul className="space-y-2">
                 {categories.map(category => (
                   <li key={category}>
-                    <Link 
-                      href={`/categories/${category}`} 
+                    <Link
+                      href={`/categories/${category}`}
                       className="text-gray-900 hover:text-gray-700 block py-1 px-2 rounded-md"
                     >
                       {category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
@@ -191,7 +192,7 @@ const Header = () => {
               </ul>
             </div>
 
-            
+
           </nav>
         </aside>
       )}
