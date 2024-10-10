@@ -6,7 +6,7 @@ import Link from 'next/link'; // Import Link for navigation
 import Image from 'next/image'; // Import Image for optimized images
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
-
+import { usePathname } from 'next/navigation'; // Import usePathname
 // Define a type for the product details
 interface Product {
   id: string;
@@ -25,18 +25,20 @@ const staticProduct: Product = {
 
 const ProductPage = () => {
   const router = useRouter();
+  const pathname = usePathname(); // Use usePathname to get the current path
   const [idProduct, setIdProduct] = useState<string | undefined>(undefined); // State for product ID
   const [quantity, setQuantity] = useState(1); // State for quantity
   const [product, setProduct] = useState<Product>(staticProduct); // State for product details
 
+
   useEffect(() => {
-    // Check if router is ready and set the product ID based on the pathname
-    if (router?.asPath) {
-      const pathSegments = router.asPath.split('/');
+    // Check if pathname is available and set the product ID based on the pathname
+    if (pathname) {
+      const pathSegments = pathname.split('/');
       const productIdFromPath = pathSegments[pathSegments.length - 1];
       setIdProduct(productIdFromPath); // Set the product ID state
     }
-  }, [router]); // Run effect when router changes
+  }, [pathname]); // Run effect when pathname changes
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
