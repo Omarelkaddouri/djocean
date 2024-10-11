@@ -11,12 +11,12 @@ const styles = {
     marginTop: '10px',
     borderRadius: '8px',
     padding: '15px',
-    backgroundColor: '#007bff', // Primary color
+    // backgroundColor: '#007bff', 
     color: '#fff',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)', // Shadow for depth
   },
   optionButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#007bff',
     border: '2px solid #fff', // Border for better visibility
     color: '#fff',
     padding: '12px',
@@ -79,7 +79,7 @@ const Options = (props) => {
           onClick={option.handler}
           style={styles.optionButton}
           onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.optionButtonHover.backgroundColor)}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#007bff')}
           onMouseDown={(e) => (e.currentTarget.style.transform = styles.optionButtonActive.transform)}
           onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         >
