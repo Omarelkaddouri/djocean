@@ -27,6 +27,12 @@ const Slid = () => {
       title: "Drums",
       description: "Rhythm made easy with our range of drum kits.",
       link: "/slid3",
+    },
+    {
+      img: "/images/djs_slid.jpg", // New DJ Equipment image
+      title: "DJ Equipment",
+      description: "Unleash your creativity with our professional DJ equipment.",
+      link: "/slid4", // Link for the DJ Equipment slide
     }
   ];
 
@@ -85,17 +91,20 @@ const Slid = () => {
           >
             <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>{slide.title}</h3>
             <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>{slide.description}</p>
-            <Link href={`/categories${slide.link}`}> {/* Updated link to navigate to /categories/slide.link */}
+            <Link href={`/categories${slide.link}`}>
               <button
                 style={{
-                  padding: "16px 32px", // Increased padding for the button
-                  fontSize: "1.5rem", // Increased font size
+                  padding: "16px 32px",
+                  fontSize: "1.5rem",
                   backgroundColor: "#cf000c",
                   color: "#fff",
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
+                  transition: "background-color 0.3s ease", // Smooth transition for hover effect
                 }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"} // Darker shade on hover
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"} // Original color
               >
                 Discover
               </button>
