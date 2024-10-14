@@ -6,8 +6,8 @@ import Link from 'next/link';
 // Define the Type interface for Type objects
 interface Type {
   id: number;
-  title: string; // Change to 'title' to match your API data
-  image: string; // Change to 'image' to match your API data
+  name: string;
+  img: string;
 }
 
 const Type: React.FC = () => {
@@ -15,27 +15,21 @@ const Type: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  // Local images array
+  const localImages = [
+    { id: 1, name: 'Type 1', img: '/images/guitar_slid.jpg' },
+    { id: 2, name: 'Type 2', img: '/images/bases_slid.jpg' },
+    { id: 3, name: 'Type 3', img: '/images/drums_slid.jpg' },
+    { id: 4, name: 'Type 4', img: '/images/djs_slid.jpg' },
+  ];
+
   useEffect(() => {
-    const loadTypes = async () => {
+    const loadTypes = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch('https://admin-djstage.vercel.app/api/types/list-types'); // Replace with your actual API URL
-        const data = await response.json();
-        console.log(data)
-
-        if (data.success) {
-          // Map the API response to the Type structure
-          const fetchedTypes = data.types.map((item: any) => ({
-            id: item.id,
-            title: item.title,
-            image: item.image,
-          }));
-
-          setTypes(fetchedTypes);
-        } else {
-          throw new Error('Failed to fetch types');
-        }
+        // Use the local images directly
+        setTypes(localImages);
       } catch (error) {
         console.error("Failed to load types:", error);
         setError("Failed to load types. Please try again later.");
@@ -70,12 +64,12 @@ const Type: React.FC = () => {
           >
             <Link href={`/categories/${type.id}`}> {/* Pass the type ID to the category page */}
               <img
-                src={type.image}
-                alt={type.title}
+                src={type.img}
+                alt={type.name}
                 className="w-full h-40 object-cover"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center py-2">
-                <h3 className="text-lg font-semibold">{type.title}</h3>
+                <h3 className="text-lg font-semibold">{type.name}</h3>
               </div>
             </Link>
           </div>
