@@ -7,85 +7,99 @@ import Footer from '@/components/footer/Footer';
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [question, setQuestion] = useState(''); // New state for question
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
-  const handleSubmit = async (e:any) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSuccessMessage('');
 
-    // Here you can handle form submission (e.g., send data to an API)
-    // For demonstration, we'll just log the data
-    console.log({ name, email, message });
-    
-    // Simulate a network request
+    // Simulate a network request (replace this with your API call)
+    console.log({ name, email, question, message });
     setTimeout(() => {
-      alert('Message sent!');
+      setSuccessMessage('Your message has been sent successfully!');
       setIsSubmitting(false);
       setName('');
       setEmail('');
+      setQuestion('');
       setMessage('');
     }, 1000);
   };
 
   return (
     <>
-    <Header />
-    <div className="bg-gray-50 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <h1 className="text-5xl font-bold text-center text-gray-800 mb-10">Contact Us</h1>
+      <Header />
+      <div className="flex flex-col md:flex-row items-center justify-between p-6 md:p-12 bg-white shadow-md rounded-lg">
+      {/* Image Section */}
+      <div className="md:w-1/2 mb-6 md:mb-0">
+        <img
+          src="/images/contact.svg"
+          alt="Contact"
+          className="w-full h-auto object-contain"
+        />
+      </div>
 
-        <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md">
-          <div className="mb-6">
-            <label htmlFor="name" className="block text-lg font-semibold text-gray-800 mb-2">Name</label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-lg font-semibold text-gray-800 mb-2">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-            />
-          </div>
-          <div className="mb-6">
-            <label htmlFor="message" className="block text-lg font-semibold text-gray-800 mb-2">Message</label>
-            <textarea
-              id="message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              required
-              // rows="5"
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-            ></textarea>
-          </div>
+      {/* Form Section */}
+      <div className="md:w-1/2 w-full px-4">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center md:text-left">Get in Touch</h2>
+        <form className="flex flex-col space-y-4">
+          <label htmlFor="name" className="font-medium">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+
+          <label htmlFor="email" className="font-medium">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+
+          <label htmlFor="question" className="font-medium">
+            Your Question
+          </label>
+          <input
+            type="text"
+            id="question"
+            name="question"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            required
+          />
+
+          <label htmlFor="message" className="font-medium">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            className="p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            rows={4}
+            required
+          ></textarea>
+
           <button
             type="submit"
-            disabled={isSubmitting}
-            className={`w-full p-3 text-white font-semibold rounded-md ${isSubmitting ? 'bg-gray-400' : 'bg-blue-600 hover:bg-blue-700'}`}
+            className="py-3 px-6 bg-blue-600 text-white rounded hover:bg-blue-700 transition font-semibold"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            Send Message
           </button>
         </form>
-
-        <div className="mt-10 text-center">
-          <Link href="/" className="text-lg text-blue-500 hover:underline">
-            Back to Home
-          </Link>
-        </div>
       </div>
     </div>
-    <Footer />
+      <Footer />
     </>
   );
 };
