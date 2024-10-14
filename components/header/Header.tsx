@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   MagnifyingGlassIcon,
-  UserCircleIcon,
   ShoppingCartIcon,
   Bars3Icon,
   XMarkIcon
 } from '@heroicons/react/24/outline';
+import LanguageSelector from '../LanguageSelector/LanguageSelector'; // Adjust the path if necessary
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,6 @@ const Header = () => {
                 alt="Logo"
                 className="h-[12rem] w-auto"
               />
-
             </Link>
           </div>
 
@@ -75,13 +74,9 @@ const Header = () => {
             <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
           </div>
 
-          {/* Right Icons and Search Input */}
+          {/* Right Icons and Language Selector */}
           <div className="hidden md:flex items-center space-x-4">
-            <select className="border rounded-md p-2">
-              <option value="en">EN</option>
-              <option value="fr">FR</option>
-              <option value="es">ES</option>
-            </select>
+            <LanguageSelector /> {/* Language Selector for Desktop */}
             <div className="relative">
               <input
                 type="text"
@@ -122,9 +117,6 @@ const Header = () => {
         <aside className="fixed inset-y-0 left-0 w-3/4 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out overflow-y-auto max-h-screen">
           <div className="flex justify-between items-center p-4">
             <h2 className="text-xl font-semibold">Menu</h2>
-            {/* <button onClick={toggleMenu} aria-label="Close menu">
-              <XMarkIcon className="h-6 w-6 text-gray-700" />
-            </button> */}
           </div>
           <nav className="flex flex-col space-y-4 px-4 py-2">
             <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
@@ -134,11 +126,7 @@ const Header = () => {
             {/* Language Selector */}
             <div className="mt-4">
               <h3 className="text-lg font-semibold mb-2">Language</h3>
-              <select className="border rounded-md p-2 w-full">
-                <option value="en">EN</option>
-                <option value="fr">FR</option>
-                <option value="es">ES</option>
-              </select>
+              <LanguageSelector />
             </div>
 
             {/* Search Bar */}
@@ -191,8 +179,6 @@ const Header = () => {
                 ))}
               </ul>
             </div>
-
-
           </nav>
         </aside>
       )}

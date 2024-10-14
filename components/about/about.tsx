@@ -1,15 +1,11 @@
 "use client";
 import Link from 'next/link';
-import Header from "@/components/header/Header";
 import React from "react";
-import Footer from "@/components/footer/Footer";
-
 import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <div>
-      <Header />
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1 className="text-5xl font-bold text-center text-gray-800 mb-10 drop-shadow-lg">
@@ -107,15 +103,10 @@ const About = () => {
               <li>Resources and tips to support your musical journey.</li>
             </ul>
           </motion.section>
-          <div className="text-center mt-8">
-            <Link href="/" className="inline-block bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition duration-300 shadow-md hover:shadow-lg">
-              Back to Home
-            </Link>
-          </div>
+
         
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
