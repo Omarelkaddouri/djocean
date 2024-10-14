@@ -1,5 +1,4 @@
-"use client"; // This line enables client-side rendering
-
+"use client";
 import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -8,10 +7,34 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
 
 const Slid = () => {
-  const [types, setTypes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
+
+  const slidesData = [
+    {
+      img: "/images/guitar_slid.jpg",
+      title: "Guitars",
+      description: "Explore a variety of guitars suited for every musician.",
+      link: "/slid1",
+    },
+    {
+      img: "/images/bases_slid.jpg",
+      title: "Basses",
+      description: "Find your perfect bass with rich tones and durability.",
+      link: "/slid2",
+    },
+    {
+      img: "/images/drums_slid.jpg",
+      title: "Drums",
+      description: "Rhythm made easy with our range of drum kits.",
+      link: "/slid3",
+    },
+    {
+      img: "/images/djs_slid.jpg", // New DJ Equipment image
+      title: "DJ Equipment",
+      description: "Unleash your creativity with our professional DJ equipment.",
+      link: "/slid4", // Link for the DJ Equipment slide
+    }
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -27,44 +50,6 @@ const Slid = () => {
     };
   }, []);
 
-  // Fetching types from the API
-  useEffect(() => {
-    const loadTypes = async () => {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch('/api/types'); // Use the proxy you created
-        const data = await response.json();
-
-        if (data.success) {
-          setTypes(data.types);
-        } else {
-          throw new Error('Failed to fetch types');
-        }
-      } catch (error) {
-        console.error("Failed to load types:", error);
-        setError("Failed to load types. Please try again later.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadTypes();
-  }, []);
-
-  if (loading) {
-    return (
-      <div className="text-center py-12">
-        <p>Loading types...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return <p className="text-red-500 text-center py-12">{error}</p>;
-  }
-
   return (
     <Swiper
       style={{ marginTop: "10px" }}
@@ -78,19 +63,19 @@ const Slid = () => {
         disableOnInteraction: false,
       }}
     >
-      {types.map((type) => (
+      {slidesData.map((slide, index) => (
         <SwiperSlide
-          key={type.id}
+          key={index}
           style={{
             display: 'flex',
             alignItems: isMobile ? 'flex-start' : 'center',
             justifyContent: isMobile ? 'flex-start' : 'center',
             textAlign: 'left',
             flexDirection: isMobile ? 'column' : 'row',
-            minHeight: "600px",
-            backgroundColor: "#f0f0f0",
-            padding: "20px",
-            borderRadius: "10px",
+            minHeight: "600px", // Increased height for slides
+            backgroundColor: "#f0f0f0", // Background color for slides
+            padding: "20px", // Padding around content
+            borderRadius: "10px", // Optional rounded corners
           }}
         >
           <div
@@ -104,9 +89,9 @@ const Slid = () => {
               boxSizing: "border-box",
             }}
           >
-            <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>{type.title}</h3>
-            <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>Explore more about {type.title}!</p>
-            <Link href={`/categories/${type.id}`}>
+            <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>{slide.title}</h3>
+            <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>{slide.description}</p>
+            <Link href={`/categories${slide.link}`}>
               <button
                 style={{
                   padding: "16px 32px",
@@ -116,10 +101,10 @@ const Slid = () => {
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
-                  transition: "background-color 0.3s ease",
+                  transition: "background-color 0.3s ease", // Smooth transition for hover effect
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"}
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"} // Darker shade on hover
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"} // Original color
               >
                 Discover
               </button>
@@ -127,8 +112,8 @@ const Slid = () => {
           </div>
           <div style={{ width: "100%", maxWidth: "600px" }}>
             <img
-              src={type.image}
-              alt={type.title}
+              src={slide.img}
+              alt={slide.title}
               style={{
                 width: "100%",
                 height: "auto",
