@@ -7,17 +7,28 @@ import {
   Bars3Icon,
   XMarkIcon
 } from '@heroicons/react/24/outline';
-import LanguageSelector from '../LanguageSelector/LanguageSelector'; // Adjust the path if necessary
+import LanguageSelector from '../LanguageSelector/LanguageSelector'; // Import LanguageSelector
+import { useLanguage } from '../../context/LanguageContext'; // Import the language context
+import { translate, translateCategory } from '../../translations'; // Import translate and translateCategory functions
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  const { language } = useLanguage(); // Get the current language
 
   const categories = [
-    "guitars", "basses", "keys", "wind-instruments",
-    "drums-percussion", "pa-lighting", "recording",
-    "dj-equipment", "instruments-for-children", "accessories-cables"
+    "guitars", 
+    "basses", 
+    "keys", 
+    "wind_instruments",
+    "drums_percussion", 
+    "pa_lighting", 
+    "recording",
+    "dj_equipment", 
+    "instruments_for_children", 
+    "accessories_cables"
   ];
 
   const filteredCategories = categories.filter(category =>
@@ -69,9 +80,15 @@ const Header = () => {
 
           {/* Center Navigation Links */}
           <div className="hidden md:flex md:space-x-10">
-            <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
-            <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
-            <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
+            <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('home', language)}
+            </Link>
+            <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('about', language)}
+            </Link>
+            <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('contact', language)}
+            </Link>
           </div>
 
           {/* Right Icons and Language Selector */}
@@ -96,7 +113,7 @@ const Header = () => {
                         className="block px-4 py-2 text-gray-900 hover:bg-gray-200"
                         onClick={() => setSearchQuery('')}
                       >
-                        {category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        {translateCategory(category, language)} {/* Use translateCategory for translation */}
                       </Link>
                     ))
                   ) : (
@@ -119,9 +136,15 @@ const Header = () => {
             <h2 className="text-xl font-semibold">Menu</h2>
           </div>
           <nav className="flex flex-col space-y-4 px-4 py-2">
-            <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">Home</Link>
-            <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">About</Link>
-            <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">Contact</Link>
+            <Link href="/" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('home', language)}
+            </Link>
+            <Link href="/about" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('about', language)}
+            </Link>
+            <Link href="/contact" className="text-gray-900 hover:text-gray-700 py-2 px-4">
+              {translate('contact', language)}
+            </Link>
 
             {/* Language Selector */}
             <div className="mt-4">
@@ -150,7 +173,7 @@ const Header = () => {
                           className="block px-4 py-2 text-gray-900 hover:bg-gray-200"
                           onClick={() => setSearchQuery('')}
                         >
-                          {category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                          {translateCategory(category, language)} {/* Use translateCategory for translation */}
                         </Link>
                       ))
                     ) : (
@@ -173,7 +196,7 @@ const Header = () => {
                       href={`/categories/${category}`}
                       className="text-gray-900 hover:text-gray-700 block py-1 px-2 rounded-md"
                     >
-                      {category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                      {translateCategory(category, language)} {/* Use translateCategory for translation */}
                     </Link>
                   </li>
                 ))}

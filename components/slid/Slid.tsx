@@ -5,34 +5,37 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
+import { useLanguage } from '../../context/LanguageContext'; // Import language context
+import { translate } from '../../translations'; // Import translate function
 
 const Slid = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const { language } = useLanguage(); // Get the current language
 
   const slidesData = [
     {
       img: "/images/guitar_slid.jpg",
-      title: "Guitars",
-      description: "Explore a variety of guitars suited for every musician.",
+      title: "guitars", // Use translation key
+      description: "Explore a variety of guitars suited for every musician.", // Use translation key if needed
       link: "/slid1",
     },
     {
       img: "/images/bases_slid.jpg",
-      title: "Basses",
-      description: "Find your perfect bass with rich tones and durability.",
+      title: "basses", // Use translation key
+      description: "Find your perfect bass with rich tones and durability.", // Use translation key if needed
       link: "/slid2",
     },
     {
       img: "/images/drums_slid.jpg",
-      title: "Drums",
-      description: "Rhythm made easy with our range of drum kits.",
+      title: "drums", // Use translation key
+      description: "Rhythm made easy with our range of drum kits.", // Use translation key if needed
       link: "/slid3",
     },
     {
-      img: "/images/djs_slid.jpg", // New DJ Equipment image
-      title: "DJ Equipment",
-      description: "Unleash your creativity with our professional DJ equipment.",
-      link: "/slid4", // Link for the DJ Equipment slide
+      img: "/images/djs_slid.jpg",
+      title: "djEquipment", // Use translation key
+      description: "Unleash your creativity with our professional DJ equipment.", // Use translation key if needed
+      link: "/slid4",
     }
   ];
 
@@ -72,10 +75,10 @@ const Slid = () => {
             justifyContent: isMobile ? 'flex-start' : 'center',
             textAlign: 'left',
             flexDirection: isMobile ? 'column' : 'row',
-            minHeight: "600px", // Increased height for slides
-            backgroundColor: "#f0f0f0", // Background color for slides
-            padding: "20px", // Padding around content
-            borderRadius: "10px", // Optional rounded corners
+            minHeight: "600px",
+            backgroundColor: "#f0f0f0",
+            padding: "20px",
+            borderRadius: "10px",
           }}
         >
           <div
@@ -89,8 +92,12 @@ const Slid = () => {
               boxSizing: "border-box",
             }}
           >
-            <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>{slide.title}</h3>
-            <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>{slide.description}</p>
+            <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>
+              {translate(slide.title, language)} {/* Translate title */}
+            </h3>
+            <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>
+              {translate(slide.description, language)} {/* Translate description if needed */}
+            </p>
             <Link href={`/categories${slide.link}`}>
               <button
                 style={{
@@ -101,10 +108,10 @@ const Slid = () => {
                   border: "none",
                   borderRadius: "5px",
                   cursor: "pointer",
-                  transition: "background-color 0.3s ease", // Smooth transition for hover effect
+                  transition: "background-color 0.3s ease",
                 }}
-                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"} // Darker shade on hover
-                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"} // Original color
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"}
               >
                 Discover
               </button>

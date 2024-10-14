@@ -1,26 +1,25 @@
-// components/LanguageSelector.js
-
+"use client";
 import { useState } from 'react';
 import Image from 'next/image';
+import { useLanguage } from '../../context/LanguageContext'; // Import LanguageContext
 
 const languages = [
   { code: 'en', label: 'English', flag: '/images/flags/english-flag.png' },
   { code: 'fr', label: 'French', flag: '/images/flags/french-flag.png' },
-  { code: 'العربية', label: 'العربية', flag: '/images/flags/arabic-flag.png' },
+  { code: 'ar', label: 'العربية', flag: '/images/flags/arabic-flag.png' },
 ];
 
 const LanguageSelector = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const { language, setLanguage } = useLanguage(); // Access context
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(prev => !prev);
   };
 
   const handleLanguageChange = (language) => {
-    setSelectedLanguage(language);
+    setLanguage(language.code); // Update context with selected language code
     setIsOpen(false);
-    // Add logic to handle language change, such as updating context or local storage
   };
 
   return (
@@ -28,33 +27,35 @@ const LanguageSelector = () => {
       <button
         onClick={toggleDropdown}
         className="border rounded-md p-2 flex items-center"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
       >
         <Image
-          src={selectedLanguage.flag}
-          alt={selectedLanguage.label}
+          src={languages.find(lang => lang.code === language).flag} // Find the flag based on current language
+          alt={languages.find(lang => lang.code === language).label}
           width={20}
           height={20}
           className="mr-2"
         />
-        {selectedLanguage.label}
+        {languages.find(lang => lang.code === language).label}
       </button>
 
       {isOpen && (
         <div className="absolute bg-white border rounded-md shadow-md mt-1 w-full z-50">
-          {languages.map((language) => (
+          {languages.map((lang) => (
             <button
-              key={language.code}
-              onClick={() => handleLanguageChange(language)}
+              key={lang.code}
+              onClick={() => handleLanguageChange(lang)}
               className="flex items-center p-2 w-full text-left hover:bg-gray-200"
             >
               <Image
-                src={language.flag}
-                alt={language.label}
+                src={lang.flag}
+                alt={lang.label}
                 width={20}
                 height={20}
                 className="mr-2"
               />
-              {language.label}
+              {lang.label}
             </button>
           ))}
         </div>
