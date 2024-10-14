@@ -7,7 +7,7 @@ class ActionProvider {
   }
 
   greet() {
-    const message = this.createChatBotMessage("Hello there! How can I help?");
+    const message = this.createChatBotMessage("Hello there! How can I help?", { className: 'bot-message' });
     this.setState((prev) => ({
       ...prev,
       messages: [...prev.messages, message],
@@ -18,7 +18,8 @@ class ActionProvider {
 
   showOptions() {
     const optionsMessage = this.createChatBotMessage("Choose an Option to Explore Musical Instrument Types:", {
-      widget: "options", // Specify the widget for options
+      widget: "options",
+      className: 'bot-message',
     });
 
     this.setState((prev) => ({
@@ -28,13 +29,22 @@ class ActionProvider {
   }
 
   defaultResponse() {
-    const message = this.createChatBotMessage("I'm here to assist you!");
+    const typingMessage = this.createChatBotMessage("...", { className: 'typing-indicator' });
     this.setState((prev) => ({
       ...prev,
-      messages: [...prev.messages, message],
+      messages: [...prev.messages, typingMessage],
     }));
 
-    this.showOptions(); // Show options after the default response
+    // Simulate a delay for the bot to respond
+    setTimeout(() => {
+      const message = this.createChatBotMessage("I'm here to assist you!", { className: 'bot-message' });
+      this.setState((prev) => ({
+        ...prev,
+        messages: [...prev.messages, message],
+      }));
+
+      this.showOptions(); // Show options after the default response
+    }, 1500); // Adjust delay as needed
   }
 }
 

@@ -1,3 +1,5 @@
+// components/chatbot/MessageParser.js
+
 class MessageParser {
   constructor(actionProvider) {
     this.actionProvider = actionProvider;

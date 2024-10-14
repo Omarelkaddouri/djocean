@@ -11,31 +11,21 @@ const styles = {
     marginTop: '10px',
     borderRadius: '8px',
     padding: '15px',
-    // backgroundColor: '#007bff', 
     color: '#fff',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)', // Shadow for depth
   },
   optionButton: {
-    backgroundColor: '#007bff',
-    border: '2px solid #fff', // Border for better visibility
+    backgroundColor: 'rgb(62 62 62)',
+    border: '2px solid #fff',
     color: '#fff',
     padding: '12px',
     borderRadius: '8px',
-    margin: '8px 0',
+    // margin: '8px 0',
     cursor: 'pointer',
-    transition: 'all 0.3s ease', // Smooth transition for effects
-    fontSize: '16px', // Larger font size
-    fontWeight: 'bold', // Bold text
-    outline: 'none', // Remove outline
-  },
-  optionButtonHover: {
-    backgroundColor: '#0056b3', // Darker shade for hover
-    transform: 'scale(1.05)', // Slightly enlarge button on hover
-  },
-  optionButtonActive: {
-    backgroundColor: '#0056b3', // Active state
-    color: '#fff',
-    transform: 'scale(0.95)', // Slightly shrink button when active
+    transition: 'all 0.3s ease',
+    fontSize: '13px',
+    fontWeight: 'bold',
+    outline: 'none',
   },
 };
 
@@ -52,22 +42,30 @@ const Options = (props) => {
     // Set message based on selected option
     switch (option) {
       case "Guitars":
-        message = createChatBotMessage("You selected Guitars. Types include: Acoustic, Electric, Bass.");
+        message = createChatBotMessage("You selected Guitars. Types include: Acoustic, Electric, Bass.", { className: 'bot-message' });
         break;
       case "Basses":
-        message = createChatBotMessage("You selected Basses. Types include: Electric Bass, Double Bass, Fretless Bass.");
+        message = createChatBotMessage("You selected Basses. Types include: Electric Bass, Double Bass, Fretless Bass.", { className: 'bot-message' });
         break;
       case "Drums":
-        message = createChatBotMessage("You selected Drums. Types include: Acoustic Drums, Electronic Drums, Hand Drums.");
+        message = createChatBotMessage("You selected Drums. Types include: Acoustic Drums, Electronic Drums, Hand Drums.", { className: 'bot-message' });
         break;
       default:
-        message = createChatBotMessage("Please select a valid option.");
+        message = createChatBotMessage("Please select a valid option.", { className: 'bot-message' });
     }
 
-    // Update the chatbot state with the message
+    // Update the contact message to be clickable
+    const contactMessage = createChatBotMessage(
+      <span>
+        For more information, contact us at: <a href="tel:+212657011638" style={{ color: 'dark', textDecoration: 'none' }}>+212657011638</a>
+      </span>,
+      { className: 'bot-message' }
+    );
+
+    // Update the chatbot state with the messages
     props.setState((prev) => ({
       ...prev,
-      messages: [...prev.messages, message],
+      messages: [...prev.messages, message, contactMessage],
     }));
   };
 
@@ -78,10 +76,6 @@ const Options = (props) => {
           key={option.id}
           onClick={option.handler}
           style={styles.optionButton}
-          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = styles.optionButtonHover.backgroundColor)}
-          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#007bff')}
-          onMouseDown={(e) => (e.currentTarget.style.transform = styles.optionButtonActive.transform)}
-          onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1)')}
         >
           {option.text}
         </button>

@@ -1,0 +1,49 @@
+/* components/chatbot/styles/chatbot.css */
+
+/* Existing styles for chatbot messages */
+.react-chatbot-kit-chat-bot-message {
+  background-color: #b1cbe7; /* Set your desired background color */
+  color: #000; /* Set text color (optional) */
+  border-radius: 8px; /* Optional: to match button styles */
+  padding: 10px; /* Optional: add some padding */
+  margin: 5px 0; /* Optional: space between messages */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for depth */
+}
+
+/* Style for user messages */
+.react-chatbot-kit-user-message {
+  background-color: #376b7e; /* Change this to your preferred color */
+  color: #fff; /* Set text color for user messages */
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* New styles for the message arrow */
+.react-chatbot-kit-chat-bot-message-arrow {
+  border-color: #b1cbe7 transparent transparent transparent; /* Set the arrow color */
+}
+.react-chatbot-kit-chat-btn-send{
+  border-radius: 10px;
+}
+.react-chatbot-kit-chat-input {
+  border: none; /* Remove the border */
+  outline: none; /* Remove the outline when focused */
+  box-shadow: none; /* Remove any box shadow if present */
+  border-radius: 8px; /* Optional: match with the other elements */
+  padding: 10px; /* Add padding for better appearance */
+  width: 100%; /* Ensure the input takes the full width */
+  background-color: #f1f1f1; /* Optional: set a background color */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Optional: Add a hover effect */
+.react-chatbot-kit-chat-input:hover {
+  background-color: #e1e1e1; /* Change background on hover */
+}
+
+/* Optional: Change background color when focused */
+.react-chatbot-kit-chat-input:focus {
+  background-color: #fff; /* Change background on focus */
+}

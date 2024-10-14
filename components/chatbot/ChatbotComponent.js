@@ -4,7 +4,8 @@
 
 import React, { useState } from 'react';
 import Chatbot from 'react-chatbot-kit';
-import 'react-chatbot-kit/build/main.css';
+import 'react-chatbot-kit/build/main.css'; // Import default styles
+import './styles/chatbot.css'; // Import your custom CSS file
 import config from './ChatbotConfig';
 import MessageParser from './MessageParser';
 import ActionProvider from './ActionProvider';
@@ -19,7 +20,6 @@ function ChatbotComponent() {
 
   return (
     <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: '1000' }}>
-      {/* Button to toggle the chatbot */}
       <button
         onClick={toggleChatbot}
         style={{
@@ -37,7 +37,6 @@ function ChatbotComponent() {
         <FaComments size={24} />
       </button>
 
-      {/* Chatbot display, initially hidden */}
       {isOpen && (
         <div style={{ maxWidth: '300px', marginTop: '10px' }}>
           <Chatbot config={config} messageParser={MessageParser} actionProvider={ActionProvider} />
