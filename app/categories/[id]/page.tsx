@@ -3,8 +3,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation'; // Use next/navigation to access URL parameters
 import Header from '@/components/header/Header';
+import Footer from '@/components/footer/Footer';
 import Link from 'next/link'; // Import Link for navigation
 import Image from 'next/image'; // Import Next.js Image component
+import dynamic from 'next/dynamic';
+
+// Make sure the path includes the full filename
+const ChatbotComponent = dynamic(() => import('../../../components/chatbot/ChatbotComponent'), { ssr: false });
 
 interface Photo {
   id: number;
@@ -57,6 +62,8 @@ const TypePage: React.FC = () => {
           ))}
         </div>
       </div>
+      <ChatbotComponent />
+      <Footer />
     </>
   );
 };

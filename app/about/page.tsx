@@ -5,6 +5,10 @@ import React from "react";
 import Footer from "@/components/footer/Footer";
 
 import { motion } from "framer-motion";
+import dynamic from 'next/dynamic';
+
+// Make sure the path includes the full filename
+const ChatbotComponent = dynamic(() => import('../../components/chatbot/ChatbotComponent'), { ssr: false });
 
 const About = () => {
   return (
@@ -115,6 +119,7 @@ const About = () => {
         
         </div>
       </div>
+      <ChatbotComponent />
       <Footer />
     </div>
   );

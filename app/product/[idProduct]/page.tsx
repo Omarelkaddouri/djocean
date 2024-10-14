@@ -7,6 +7,10 @@ import Image from 'next/image'; // Import Image for optimized images
 import Header from "../../../components/header/Header";
 import Footer from "../../../components/footer/Footer";
 import { usePathname } from 'next/navigation'; // Import usePathname
+import dynamic from 'next/dynamic';
+
+// Make sure the path includes the full filename
+const ChatbotComponent = dynamic(() => import('../../../components/chatbot/ChatbotComponent'), { ssr: false });
 
 // Define a type for the product details
 interface Product {
@@ -88,6 +92,7 @@ const ProductPage = () => {
           </Link>
         </form>
       </div>
+      <ChatbotComponent />
       <Footer />
     </>
   );

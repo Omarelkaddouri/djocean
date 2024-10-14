@@ -5,6 +5,11 @@ import Link from 'next/link';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
+
+// Make sure the path includes the full filename
+const ChatbotComponent = dynamic(() => import('../../components/chatbot/ChatbotComponent'), { ssr: false });
+
 
 // Define the interface for cart items
 interface CartItem {
@@ -111,6 +116,7 @@ const Cart: React.FC = () => {
           )}
         </div>
       </div>
+      <ChatbotComponent />
       <Footer />
     </>
   );

@@ -2,6 +2,10 @@
 import { useState } from 'react';
 import Header from '@/components/header/Header';
 import Footer from '@/components/footer/Footer';
+import dynamic from 'next/dynamic';
+
+// Make sure the path includes the full filename
+const ChatbotComponent = dynamic(() => import('../../components/chatbot/ChatbotComponent'), { ssr: false });
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -121,6 +125,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
+      <ChatbotComponent />
       <Footer />
     </>
   );
