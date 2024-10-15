@@ -2,14 +2,18 @@
 import Link from 'next/link';
 import React from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from '../../context/LanguageContext'; // Adjust the import path as needed
+import { translate } from '../../translations'; // Adjust the import path as needed
 
 const About = () => {
+  const { language } = useLanguage();
+
   return (
     <div>
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 min-h-screen">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
           <h1 className="text-5xl font-bold text-center text-gray-800 mb-10 drop-shadow-lg">
-            About DJStage
+            {translate('about', language)} DJStage
           </h1>
 
           {/* Who We Are Section */}
@@ -20,7 +24,7 @@ const About = () => {
             className="mb-10 p-6 bg-white rounded-lg shadow-lg transform transition-all hover:shadow-2xl duration-300"
           >
             <h2 className="text-4xl font-semibold text-gray-800 mb-4 border-b-2 border-blue-400 pb-2">
-              Who We Are
+              {translate('who_we_are', language)} {/* Add translation for this key */}
             </h2>
             <div className="flex flex-col md:flex-row items-center md:space-x-6">
               <img
@@ -31,11 +35,10 @@ const About = () => {
               />
               <div className="text-lg text-gray-700">
                 <p className="mb-4">
-                  We are a passionate team of music enthusiasts dedicated to providing musicians of all levels with the highest quality music shopping materials. 
-                  From instruments to accessories, we aim to cater to all your musical needs.
+                  {translate('who_we_are_description_1', language)} {/* Add translation for this key */}
                 </p>
                 <p className="mb-4">
-                  Our love for music drives us to curate an extensive selection of products that inspire creativity and enhance your musical journey.
+                  {translate('who_we_are_description_2', language)} {/* Add translation for this key */}
                 </p>
               </div>
             </div>
@@ -49,7 +52,7 @@ const About = () => {
             className="mb-10 p-6 bg-white rounded-lg shadow-lg transform transition-all hover:shadow-2xl duration-300"
           >
             <h2 className="text-4xl font-semibold text-gray-800 mb-4 border-b-2 border-blue-400 pb-2">
-              Our Mission
+              {translate('our_mission', language)} {/* Add translation for this key */}
             </h2>
             <div className="flex flex-col md:flex-row items-center md:space-x-6">
               <img
@@ -59,8 +62,7 @@ const About = () => {
                 className="rounded-lg shadow-md mb-4 md:mb-0"
               />
               <p className="text-lg text-gray-700">
-                Our mission is to empower musicians by offering a wide range of quality materials at affordable prices. 
-                We believe that everyone deserves the opportunity to explore their musical talent and express themselves through music.
+                {translate('our_mission_description', language)} {/* Add translation for this key */}
               </p>
             </div>
           </motion.section>
@@ -73,13 +75,13 @@ const About = () => {
             className="mb-10 p-6 bg-white rounded-lg shadow-lg transform transition-all hover:shadow-2xl duration-300"
           >
             <h2 className="text-4xl font-semibold text-gray-800 mb-4 border-b-2 border-blue-400 pb-2">
-              Our Values
+              {translate('our_values', language)} {/* Add translation for this key */}
             </h2>
             <ul className="list-disc pl-5 text-lg text-gray-700 space-y-2">
-              <li>⭐ Customer Satisfaction: We prioritize our customers&apos; needs and strive to provide excellent service.</li>
-              <li>⭐ Quality: We carefully select products from trusted brands to ensure durability and performance.</li>
-              <li>⭐ Community: We are committed to supporting local musicians and fostering a vibrant music community.</li>
-              <li>⭐ Innovation: We stay updated with the latest trends in music materials to offer you the best options.</li>
+              <li>{translate('value_customer_satisfaction', language)}</li> {/* Add translation for this key */}
+              <li>{translate('value_quality', language)}</li> {/* Add translation for this key */}
+              <li>{translate('value_community', language)}</li> {/* Add translation for this key */}
+              <li>{translate('value_innovation', language)}</li> {/* Add translation for this key */}
             </ul>
           </motion.section>
 
@@ -91,20 +93,18 @@ const About = () => {
             className="mb-10 p-6 bg-white rounded-lg shadow-lg transform transition-all hover:shadow-2xl duration-300"
           >
             <h2 className="text-4xl font-semibold text-gray-800 mb-4 border-b-2 border-blue-400 pb-2">
-              What You Can Expect
+              {translate('what_you_can_expect', language)} {/* Add translation for this key */}
             </h2>
             <p className="text-lg text-gray-700 mb-4">
-              When you shop with us, you can expect:
+              {translate('expectation_intro', language)} {/* Add translation for this key */}
             </p>
             <ul className="list-disc pl-5 text-lg text-gray-700 space-y-2">
-              <li>A diverse range of music materials, including instruments, accessories, and sheet music.</li>
-              <li>Helpful customer service that guides you in selecting the right products.</li>
-              <li>Competitive prices and regular promotions to help you save on your music shopping.</li>
-              <li>Resources and tips to support your musical journey.</li>
+              <li>{translate('expectation_item_1', language)}</li> {/* Add translation for this key */}
+              <li>{translate('expectation_item_2', language)}</li> {/* Add translation for this key */}
+              <li>{translate('expectation_item_3', language)}</li> {/* Add translation for this key */}
+              <li>{translate('expectation_item_4', language)}</li> {/* Add translation for this key */}
             </ul>
           </motion.section>
-
-        
         </div>
       </div>
     </div>

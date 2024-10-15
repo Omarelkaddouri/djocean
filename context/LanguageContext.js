@@ -2,7 +2,7 @@
 "use client"
 import React, { createContext, useContext, useState } from 'react';
 
-const LanguageContext = createContext();
+export const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState('en'); // Default language

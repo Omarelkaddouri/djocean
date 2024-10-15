@@ -5,36 +5,36 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation, Autoplay } from 'swiper/modules';
 import Link from 'next/link';
-import { useLanguage } from '../../context/LanguageContext'; // Import language context
-import { translate } from '../../translations'; // Import translate function
+import { useLanguage } from '../../context/LanguageContext';
+import { translate, translateCategory, translateDescription } from '../../translations';
 
 const Slid = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const { language } = useLanguage(); // Get the current language
+  const { language } = useLanguage();
 
   const slidesData = [
     {
       img: "/images/guitar_slid.jpg",
-      title: "guitars", // Use translation key
-      description: "Explore a variety of guitars suited for every musician.", // Use translation key if needed
+      title: "guitars",
+      description: "Explore a variety of guitars suited for every musician.",
       link: "/slid1",
     },
     {
       img: "/images/bases_slid.jpg",
-      title: "basses", // Use translation key
-      description: "Find your perfect bass with rich tones and durability.", // Use translation key if needed
+      title: "basses",
+      description: "Find your perfect bass with rich tones and durability.",
       link: "/slid2",
     },
     {
       img: "/images/drums_slid.jpg",
-      title: "drums", // Use translation key
-      description: "Rhythm made easy with our range of drum kits.", // Use translation key if needed
+      title: "drums_percussion",
+      description: "Rhythm made easy with our range of drum kits.",
       link: "/slid3",
     },
     {
       img: "/images/djs_slid.jpg",
-      title: "djEquipment", // Use translation key
-      description: "Unleash your creativity with our professional DJ equipment.", // Use translation key if needed
+      title: "dj_equipment",
+      description: "Unleash your creativity with our professional DJ equipment.",
       link: "/slid4",
     }
   ];
@@ -44,9 +44,7 @@ const Slid = () => {
       setIsMobile(window.innerWidth < 932);
     };
 
-    // Set initial value
     handleResize();
-
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -93,10 +91,10 @@ const Slid = () => {
             }}
           >
             <h3 style={{ fontSize: "2.5rem", fontWeight: "bold", marginBottom: "10px" }}>
-              {translate(slide.title, language)} {/* Translate title */}
+              {translateCategory(slide.title, language)}
             </h3>
             <p style={{ fontSize: "1.5rem", color: "#555", marginBottom: "15px" }}>
-              {translate(slide.description, language)} {/* Translate description if needed */}
+              {translateDescription(slide.description, language)}
             </p>
             <Link href={`/categories${slide.link}`}>
               <button
@@ -113,14 +111,14 @@ const Slid = () => {
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#a3000a"}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "#cf000c"}
               >
-                Discover
+                {translate("discover", language)}
               </button>
             </Link>
           </div>
           <div style={{ width: "100%", maxWidth: "600px" }}>
             <img
               src={slide.img}
-              alt={slide.title}
+              alt={translateCategory(slide.title, language)}
               style={{
                 width: "100%",
                 height: "auto",

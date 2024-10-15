@@ -16,10 +16,8 @@ export default function Home() {
       <Slid />
       <Type />
       <About />
-      <section className="mb-10 p-6 bg-white rounded-lg shadow-lg">
-        <h2 className="text-4xl font-semibold text-gray-800 mb-4 text-center">Our Location</h2>
+      
         <Map />
-      </section>
       <ChatbotComponent />
       <Footer />
 
