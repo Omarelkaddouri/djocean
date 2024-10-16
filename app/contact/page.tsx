@@ -24,14 +24,14 @@ const Contact = () => {
       console.log({ name, email, question, message });
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setSuccessMessage(<Translate word="success_message" />);
+      setSuccessMessage('success_message'); // Set translation key as string
       setName('');
       setEmail('');
       setQuestion('');
       setMessage('');
     } catch (error) {
       console.error("Failed to send message", error);
-      setSuccessMessage(<Translate word="error_message" />);
+      setSuccessMessage('error_message'); // Set error translation key
     } finally {
       setIsSubmitting(false);
     }
@@ -111,7 +111,9 @@ const Contact = () => {
             </button>
 
             {successMessage && (
-              <p className="text-green-500 font-semibold mt-4">{successMessage}</p>
+              <p className="text-green-500 font-semibold mt-4">
+                <Translate word={successMessage} />
+              </p>
             )}
           </form>
         </div>
