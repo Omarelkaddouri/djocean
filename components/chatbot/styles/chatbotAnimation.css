@@ -1,0 +1,26 @@
+/* styles/chatbotAnimation.css */
+
+.chatbot-container {
+  max-width: 300px; /* Adjusted width */
+  margin-top: 10px;
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start below the button */
+  animation: fadeInUp 0.4s forwards; /* Animation for fading in */
+  border-radius: 8px; /* Rounded corners for the container */
+  overflow: hidden; /* To ensure child elements are clipped */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow for the container */
+  background-color: white; /* Background color for contrast */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+}
+
+/* Optional: Add a bouncing effect to the button when clicked */
+button:active {
+  transform: scale(0.9); /* Scale down when clicked */
+}
